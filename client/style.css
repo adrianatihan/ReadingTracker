@@ -1,0 +1,30 @@
+.container-fluid {
+  padding: 60px 50px;
+  border-bottom: 2px solid;
+  border-color: #2d2d30;
+  letter-spacing: 4px;
+}
+
+.navbar{
+  margin-bottom: 0;
+  background-color: #2d2d30;
+  border: 0;
+  letter-spacing: 4px;
+  opacity: 0.9;
+}
+
+.navbar-form label{
+    color: whitesmoke;
+    font-size: 12;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    padding: 20px 10px;
+    width: 100%;
+    letter-spacing: 4px;
+    background-color: #2d2d30;
+    color: whitesmoke;
+    text-align: center;
+  }
