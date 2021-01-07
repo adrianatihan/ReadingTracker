@@ -1,0 +1,24 @@
+{
+  "books": [
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Fitzgerald",
+      "review": "Nice"
+    },
+    {
+      "title": "Harry Potter",
+      "author": "J.K. Rowling",
+      "review": "Good"
+    },
+    {
+      "title": "HP 2",
+      "author": "JKR",
+      "review": "good"
+    },
+    {
+      "title": "HP 3",
+      "author": "JKR",
+      "review": "good"
+    }
+  ]
+}
