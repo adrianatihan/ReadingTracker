@@ -11,12 +11,14 @@
   border: 0;
   letter-spacing: 4px;
   opacity: 0.9;
+  width:100%;
 }
 
 .navbar-form label{
     color: whitesmoke;
     font-size: 12;
 }
+
 
 .footer {
     left: 0;

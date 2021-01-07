@@ -12,22 +12,25 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 
+    <link rel="icon" 
+      type="image/png" 
+      href="favicon.png">
+
     <title>Reading tracker</title>
 </head>
 
 <body>
     <nav class="navbar navbar-default">
-          <form class="navbar-form navbar-right" action="/books/search" method="get">
+        
+          <form class="navbar-form navbar-left" style="float:left" action="/books/search" method="get" id="navbarform">
                 <label for="searchtitle">Book title:</label><br>
                 <input type="text" id="searchtitle" name="searchtitle">
                 <input type='submit' id='submit_search'><br>
           </form>
-          <form class="navbar-form navbar-left" action="">
-            <label>Log in/ Sign up:</label><br>
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname">
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname">
+          <form class="navbar-form navbar-right" action="">
+            <label align="right">Log in/ Sign up:</label>
+            <input type="text" id="fname" name="fname" placeholder="First name">
+            <input type="text" id="lname" name="lname" placeholder="Last name">
             <input type="submit" value="Submit" onclick="Submit()">
           </form>
         </div>
@@ -36,7 +39,14 @@
     <div id="body">
 
      <div class="container-fluid" >
-        <h1 style="text-align: center" id="title">Personalised Reading Tracker</h1>
+       <div class="row">
+         <div class="col-sm-8">
+            <h1 id="title" align="right">Personalised Reading Tracker</h1>
+         </div>
+         <div class="col-sm-4">
+            <img width="100" height="100" src="favicon.png" class="img-circle" alt="Reading Tracker">
+         </div>
+       </div>  
     </div>
 
     <div align="center" class="container-fluid" id="description"> 

@@ -9,10 +9,7 @@ function renderBooks(library){
     container.innerHTML = "";
     for(let book of library.books){
       let item = document.createElement('div');
-      item.innerHTML= "Title:"+book.title+'<br>'+
-                      'Author:'+book.author+'<br>'+
-                      'Review:'+book.review+'<br>';
-
+      item.innerHTML= book.title+'<br>';
     container.appendChild(item);
     }
 }
@@ -23,7 +20,11 @@ submit.addEventListener('click', async function(event){
   let newbook = document.getElementById('newbook').value;
   let newauthor = document.getElementById('newauthor').value;
   let newreview = document.getElementById('newreview').value;
-  let parameters = {'title': newbook, 'author': newauthor, 'review':newreview};
+  /*let obj= { "title": newbook,
+        "author": newauthor,
+        "review": newreview};
+  library.books.push(obj);*/
+  let parameters = {'newbook': newbook, 'newauthor': newauthor, 'newreview': newreview};
   let response = await fetch('http://127.0.0.1:8090/books/add', {
     method: 'POST',
     headers: {
