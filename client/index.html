@@ -27,11 +27,11 @@
                 <input type="text" id="searchtitle" name="searchtitle">
                 <input type='submit' id='submit_search'><br>
           </form>
-          <form class="navbar-form navbar-right" action="">
+          <form class="navbar-form navbar-right" action="http://127.0.0.1:8090/person/add">
             <label align="right">Log in/ Sign up:</label>
             <input type="text" id="fname" name="fname" placeholder="First name">
             <input type="text" id="lname" name="lname" placeholder="Last name">
-            <input type="submit" value="Submit" onclick="Submit()">
+            <input type="submit" value="Submit" onclick="SubmitLogIn()" id="LogInSubmit">
           </form>
         </div>
       </nav>
@@ -49,11 +49,16 @@
        </div>  
     </div>
 
-    <div align="center" class="container-fluid" id="description"> 
-      <h3>Description of website</h3>
+    <div id="content" align="center">
+
+        <div align="centre" class="container-fluid" id="people"></div>
+    
+        <div align="centre" class="container-fluid" id="yourbooks"><h3>Description of website</h3></div>
+
+        <div align="centre" class="container-fluid" id="addbooks"></div>
     </div>
 
-    <div align="center" class="container-fluid" id="books"></div>
+    <!--<div align="center" class="container-fluid" id="books"></div>
 
     <div class="container-fluid" align="center">
     <h4>Add books:</h4>
@@ -67,27 +72,8 @@
       <input type='submit' id='submit_thing'>
     </form>
    </div>
-
-  <div align="center">
-   <!-- <h4>Search book</h4>
-    <form action="/books/search" method="get">
-        <label for="searchtitle">Book title:</label><br>
-        <input type="text" id="searchtitle" name="searchtitle"><br>
-        <input type='submit' id='submit_search'><br>
-    </form>-->
   </div>
-  <div align="center" id="searchresult"></div>
-  <!--<div class="container-fluid" id="login" align="center">
-      <h4>Log in/ Sign up</h4>
-      <form align="center">
-          <label for="fname">First name:</label>
-          <input type="text" id="fname" name="fname"><br>
-          <label for="lname">Last name:</label>
-          <input type="text" id="lname" name="lname"><br>
-          <input type="submit" value="Submit" onclick="Submit()">
-      </form>
   </div>-->
-  </div>
 
 <div class="footer">
       <h6 id="footertext">Website created for programming Black</h6>
