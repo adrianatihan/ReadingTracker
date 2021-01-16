@@ -3,22 +3,17 @@
     {
       "title": "The Great Gatsby",
       "author": "F. Fitzgerald",
-      "review": "Nice"
+      "review": "Nice",
+      "userfname": "Adriana",
+      "userlname": "Tihan"
     },
     {
       "title": "Harry Potter",
       "author": "J.K. Rowling",
-      "review": "Good"
-    },
-    {
-      "title": "HP 2",
-      "author": "JKR",
-      "review": "good"
-    },
-    {
-      "title": "HP 3",
-      "author": "JKR",
-      "review": "good"
+      "review": "Good",
+      "userfname": "A",
+      "userlname": "T"
     }
-  ]
+  ],
+  "users": []
 }
