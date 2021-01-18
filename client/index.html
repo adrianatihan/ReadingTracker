@@ -38,7 +38,7 @@
 
     <div id="body">
 
-     <div class="container-fluid" >
+     <div class="container-fluid" id="header">
        <div class="row">
          <div class="col-sm-8">
             <h1 id="title" align="right">Personalised Reading Tracker</h1>
@@ -46,22 +46,24 @@
          <div class="col-sm-4">
             <img width="100" height="100" src="favicon.png" class="img-circle" alt="Reading Tracker">
          </div>
-       </div>  
+       </div>
+       <div id="people" align="center"></div>
+       <br><br>
+       <div id="homePage" align="center"></div>
     </div>
 
     <div id="content" align="center">
+        <div id="showbooks" class="container-fluid" align="centre"></div>
 
-        <div align="centre" class="container-fluid" id="people"></div>
-    
         <div align="centre" class="container-fluid" id="yourbooks"><h3>Description of website</h3></div>
 
-        <div align="centre" class="container-fluid" id="addbooks"></div>
     </div>
 
-    <!--<div align="center" class="container-fluid" id="books"></div>
+    
 
-    <div class="container-fluid" align="center">
+    <div class="container-fluid" align="center" id="addbooks">
     <h4>Add books:</h4>
+    <p id="error"></p>
     <form action='http://127.0.0.1:8090/books/add' method='post'>
       <label for="newbook">Book title:</label>
       <input id ='newbook' type='text'><br>
@@ -73,7 +75,6 @@
     </form>
    </div>
   </div>
-  </div>-->
 
 <div class="footer">
       <h6 id="footertext">Website created for programming Black</h6>

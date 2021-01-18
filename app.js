@@ -17,22 +17,6 @@ app.get('/people/list', function(req, resp){
     resp.json(people);
 });
 
-/*app.post('/books/add', function(req, resp){
-  const newbook = req.body.newbook;
-  const newauthor = req.body.newauthor;
-  const newreview = req.body.newreview;
-  let obj= { title: newbook,
-        author: newauthor,
-        review: newreview};
-  library.books.push(obj);
-  fs.writeFile('./books.json',JSON.stringify(library, null, 2), err =>{
-      if(err){
-          console.log(err);
-      }
-  });
-  //list.push(newbook);
-  resp.json(library);
-});*/
 
 
 app.post('/people/add', function(req, resp){
@@ -41,7 +25,7 @@ app.post('/people/add', function(req, resp){
 
     let obj= { fname: fname,
           lname: lname};
-    
+    library.users.pop();
     library.users.push(obj);
 
     let flag=0;
@@ -66,6 +50,27 @@ app.get('/books/list', function(req, resp){
 
 app.get('/books/search', function(req, resp){
     resp.json(library);
+});
+
+app.post('/books/add', function(req, resp){
+  const newbook = req.body.newbook;
+  const newauthor = req.body.newauthor;
+  const newreview = req.body.newreview;
+
+  if(library.users[0].fname){
+
+  let obj= { title: newbook,
+        author: newauthor,
+        review: newreview,
+        userfname: library.users[0].fname, 
+        userlname: library.users[0].lname};
+  library.books.push(obj);
+  fs.writeFile('./books.json',JSON.stringify(library, null, 2), err =>{
+      if(err){
+          console.log(err);
+      }
+  });
+  resp.json(library);}
 });
 
 module.exports = app;

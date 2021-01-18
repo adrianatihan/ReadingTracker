@@ -1,8 +1,17 @@
 .container-fluid {
   padding: 60px 50px;
-  border-bottom: 2px solid;
-  border-color: #2d2d30;
   letter-spacing: 4px;
+}
+#header {
+  background-color: wheat;
+}
+
+#content {
+  background-color: powderblue;
+}
+
+#addbooks{
+  background-color: wheat;
 }
 
 .navbar{
