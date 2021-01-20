@@ -57,8 +57,6 @@ app.post('/books/add', function(req, resp){
   const newauthor = req.body.newauthor;
   const newreview = req.body.newreview;
 
-  if(library.users[0].fname){
-
   let obj= { title: newbook,
         author: newauthor,
         review: newreview,
@@ -70,7 +68,12 @@ app.post('/books/add', function(req, resp){
           console.log(err);
       }
   });
-  resp.json(library);}
+  resp.json(library);
+});
+
+app.get('/mainpage', function(req, resp){
+    library.users.pop();
+    resp.json(library);
 });
 
 module.exports = app;

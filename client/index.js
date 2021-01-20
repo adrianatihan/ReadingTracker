@@ -15,7 +15,7 @@ function renderPeople(people){
       {let item = document.createElement('tr');
        container.appendChild(item);}
       let item = document.createElement('td');
-      item.innerHTML= person.fname + ' ' + person.lname+ ';&nbsp&nbsp&nbsp&nbsp';
+      item.innerHTML= person.fname + ' ' + person.lname+ '&nbsp&nbsp&nbsp&nbsp';
       container.appendChild(item);
       cnt++;
     }
@@ -46,27 +46,9 @@ login.addEventListener('click', async function(event){
   document.getElementById('homePage').innerHTML='<button type="button" class="btn btn-primary" align="center" onclick=MainPage()>Back to main page</button>';
   document.getElementById('showbooks').innerHTML='<button type="button" class="btn btn-primary" align="center" onclick=showBooks()>Show books</button>';
   document.getElementById('yourbooks').innerHTML="";
-  //addForm();
+  document.getElementById('submit_thing').disabled= false;
   }
 });
-
-/*function addForm(){
-  let codeblock = '<div class="container-fluid" align="center">'+
-  '<h4>Add books:</h4>'+
-  "<form action='http://127.0.0.1:8090/books/add' method='post'>"+
-    '<label for="newbook">Book title:</label>'+
-    "<input id ='newbook' type='text'><br>"+
-    '<label for="newauthor">Book author:</label>'+
-    "<input id ='newauthor' type='text'><br>"+
-    '<label for="newreview">Book review:</label>'+
-    "<input id ='newreview' type='text'><br>"+
-    "<input type='submit' id='submit_thing'>"+
-  '</form>'+
- '</div>';
-
-   document.getElementById('addbooks').innerHTML=codeblock;
-}*/
-
 
 async function showBooks(){
   let response = await fetch('http://127.0.0.1:8090/books/list');
@@ -96,19 +78,28 @@ document.getElementById('submit_search').addEventListener('click', async functio
 function searchBooks(library, searchtitle){
   let container = document.getElementById('yourbooks');
   container.innerHTML = "<h4>Search results:</h4>";
+  let ok=0;
   for(let book of library.books){
     if(book.title==searchtitle){
+        ok=1;
         let item = document.createElement('div');
         item.innerHTML= 'Reviewed by:'+book.userfname+ ' '+ book.userlname+ '<br>'+
-                        'Review:'+book.review+'<br>';
+                        'Review:'+book.review+'<br><br>';
         container.appendChild(item);}
     if(book.userfname+ ' '+ book.userlname==searchtitle){
+        ok=1;
         let item = document.createElement('div');
         item.innerHTML= 'Title:'+ book.title+'<br>'+
                         'Author:'+book.author+'<br>'+
-                        'Review:'+book.review+'<br>';
+                        'Review:'+book.review+'<br><br>';
         container.appendChild(item);}
-  }
+    }
+    if(ok==0){
+          let item = document.createElement('div');
+          item.innerHTML="No item has matched your search";
+          container.appendChild(item);
+    }
+  
 };
 
 let submit = document.getElementById('submit_thing');
@@ -135,8 +126,15 @@ submit.addEventListener('click', async function(event){
   renderBooks(body);
 });
 
-function MainPage(){
-  document.getElementById('yourbooks').innerHTML='<h3>Description of website</h3>';
+async function MainPage(){
+
+  let response = await fetch('http://127.0.0.1:8090/mainpage');
+  let body = await response.json();
+
+  document.getElementById('yourbooks').innerHTML='<p style="font-size: 120%">Welcome to the Personalised Reading Tracker. Create your account'+
+  " and track your reading progress. Review books and see others' opinions of the books you have read or might want to read. Look"+
+  " up your friends to see what they have been reading.</p>'";
   document.getElementById('showbooks').innerHTML="";
-  library.users.pop();
+  document.getElementById('homePage').innerHTML="";
+  document.getElementById('submit_thing').disabled= true;
 }

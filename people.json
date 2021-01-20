@@ -1,9 +1,20 @@
 {
-    "people":
-    [
-        {
-            "fname": "Adriana",
-            "lname": "Tihan"
-        }
-    ]
+  "people": [
+    {
+      "fname": "Adriana",
+      "lname": "Tihan"
+    },
+    {
+      "fname": "A",
+      "lname": "T"
+    },
+    {
+      "fname": "T",
+      "lname": "A"
+    },
+    {
+      "fname": "Tia",
+      "lname": "Tihan"
+    }
+  ]
 }

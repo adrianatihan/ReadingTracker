@@ -23,7 +23,7 @@
     <nav class="navbar navbar-default">
         
           <form class="navbar-form navbar-left" style="float:left" action="/books/search" method="get" id="navbarform">
-                <label for="searchtitle">Book title:</label><br>
+                <label for="searchtitle">Search:</label><br>
                 <input type="text" id="searchtitle" name="searchtitle">
                 <input type='submit' id='submit_search'><br>
           </form>
@@ -47,6 +47,7 @@
             <img width="100" height="100" src="favicon.png" class="img-circle" alt="Reading Tracker">
          </div>
        </div>
+       <p align="center">Users:</p>
        <div id="people" align="center"></div>
        <br><br>
        <div id="homePage" align="center"></div>
@@ -55,7 +56,9 @@
     <div id="content" align="center">
         <div id="showbooks" class="container-fluid" align="centre"></div>
 
-        <div align="centre" class="container-fluid" id="yourbooks"><h3>Description of website</h3></div>
+        <div align="centre" class="container-fluid" id="yourbooks"><p style="font-size: 120%">Welcome to the Personalised Reading Tracker. Create your account and
+          track your reading progress. Review books and see others' opinions of the books you have read or might want to read. Look up
+          your friends to see what they have been reading.</p></div>
 
     </div>
 
@@ -63,7 +66,7 @@
 
     <div class="container-fluid" align="center" id="addbooks">
     <h4>Add books:</h4>
-    <p id="error"></p>
+    <p id="error">You can't add books unless logged in</p>
     <form action='http://127.0.0.1:8090/books/add' method='post'>
       <label for="newbook">Book title:</label>
       <input id ='newbook' type='text'><br>
@@ -72,6 +75,9 @@
       <label for="newreview">Book review:</label>
       <input id ='newreview' type='text'><br>
       <input type='submit' id='submit_thing'>
+      <script>
+        document.getElementById("submit_thing").disabled = true;
+      </script>
     </form>
    </div>
   </div>
