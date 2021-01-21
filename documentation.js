@@ -56,7 +56,7 @@ function peopleList(){
     document.getElementById("table").innerHTML='<tr>'+'<td> Name</td>'+ '<td> Type</td>'+ '<td> Description</td>'+ '</tr>'+
     '<tr>'+'<td> people.fname</td>'+ '<td> string</td>'+ '<td> First name of user</td>'+ '</tr>'+
     '<tr>'+'<td> people.lname</td>'+ '<td> string</td>'+ '<td> Last name of user</td>'+ '</tr>'+
-    '<tr><td>users.cnt</td><td>integer</td><td>Number of books user has added.</td></tr>';
+    '<tr><td>people.cnt</td><td>integer</td><td>Number of books user has added.</td></tr>';
 }
 
 function peopleSearch(){
@@ -69,7 +69,7 @@ function peopleSearch(){
     document.getElementById("table").innerHTML='<tr>'+'<td> Name</td>'+ '<td> Type</td>'+ '<td> Description</td>'+ '</tr>'+
     '<tr>'+'<td> people.fname</td>'+ '<td> string</td>'+ '<td> First name of user</td>'+ '</tr>'+
     '<tr>'+'<td> people.lname</td>'+ '<td> string</td>'+ '<td> Last name of user</td>'+ '</tr>'+
-    '<tr><td>users.cnt</td><td>integer</td><td>Number of books user has added.</td></tr>';
+    '<tr><td>people.cnt</td><td>integer</td><td>Number of books user has added.</td></tr>';
 }
 
 function peopleAdd(){
@@ -81,7 +81,7 @@ function peopleAdd(){
     document.getElementById("table").innerHTML='<tr>'+'<td> Name</td>'+ '<td> Type</td>'+ '<td> Description</td>'+ '</tr>'+
     '<tr>'+'<td> people.fname</td>'+ '<td> string</td>'+ '<td> First name of user</td>'+ '</tr>'+
     '<tr>'+'<td> people.lname</td>'+ '<td> string</td>'+ '<td> Last name of user</td>'+ '</tr>'+
-    '<tr><td>users.cnt</td><td>integer</td><td>Number of books user has added.</td></tr>';
+    '<tr><td>people.cnt</td><td>integer</td><td>Number of books user has added.</td></tr>';
 }
 
 
