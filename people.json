@@ -2,19 +2,13 @@
   "people": [
     {
       "fname": "Adriana",
-      "lname": "Tihan"
-    },
-    {
-      "fname": "A",
-      "lname": "T"
-    },
-    {
-      "fname": "T",
-      "lname": "A"
+      "lname": "Tihan",
+      "cnt": 1
     },
     {
       "fname": "Tia",
-      "lname": "Tihan"
+      "lname": "Tihan",
+      "cnt": 1
     }
   ]
 }

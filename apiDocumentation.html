@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"
+        integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g=="
+        crossorigin="anonymous" />
+
+        <style>
+            .col-sm-3{
+                border-right: 3px solid black;
+            }
+            .btn{
+                color: black;
+                background-color: whitesmoke;
+                border: none;
+            }
+        </style>
+
+        <title>Documentation</title>
+    </head>
+    <body>
+        <div class="row">
+        <div class="col-sm-3">
+            <h3>API documentation</h3>
+            <h5>Here's a list of the methods used.</h5>
+        <div class="container-fluid" id="body">
+            <h4>Books:</h4>
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-default" onclick=booksList()>GET /books/list></button>
+                <button type="button" class="btn btn-default" onclick=booksSearch()>GET /books/search></button>
+                <button type="button" class="btn btn-default" onclick=booksAdd()>POST /books/add></button>
+            </div>
+            <h4>Users:</h4>
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-default" onclick=peopleList()>GET /people/list></button>
+                <button type="button" class="btn btn-default" onclick=peopleSearch()>GET /people/search></button>
+                <button type="button" class="btn btn-default" onclick=peopleAdd()>POST /people/add></button>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-sm-9">
+        <div class="container-fluid">
+                <h2 id="title">GET /books/list</h2>
+                <p id="description">Returns a list of books added by the user logged in.</p>
+                <h4>Endpoint URL</h4>
+                <code id="url">http://127.0.0.1:8090/books/list</code>
+                <h4>Example request:</h4>
+                <div class="panel panel-default">
+                        <div class="panel-body" id="request">curl -X GET http://127.0.0.1:8090/books/list</div>
+                </div>
+                <h4>Example response:</h4>
+                <div class="panel panel-default">
+                        <div class="panel-body" id="response">
+                                {<br>"books":[<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"title": "The Great Gatsby",<br>&nbsp;&nbsp;&nbsp;&nbsp;"author": "F. Fitzgerald",<br>&nbsp;&nbsp;&nbsp;&nbsp;"review": "Nice", <br>&nbsp;&nbsp;&nbsp;&nbsp;"userfname": "Adriana",<br>&nbsp;&nbsp;&nbsp;&nbsp;"userlname": "Tihan"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>],<br>"users" : [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"fname" : "Name",<br>&nbsp;&nbsp;&nbsp;&nbsp;"lname" : "Name"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>]<br>}
+                        </div>
+                </div>
+                <h4>Response fields:</h4>
+                <table  class="table" id="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>books.title</td>
+                        <td>string</td>
+                        <td>The title of the book, as entered by user.</td>
+                    </tr>
+                    <tr>
+                            <td>books.author</td>
+                            <td>string</td>
+                            <td>The author of the book, as entered by user.</td>
+                    </tr>
+                    <tr>
+                            <td>books.review</td>
+                            <td>string</td>
+                            <td>The review the user gave of the book.</td>
+                    </tr>
+                    <tr>
+                            <td>books.userfname</td>
+                            <td>string</td>
+                            <td>First name of the user who added the book.</td>
+                    </tr>
+                    <tr>
+                            <td>books.userlname</td>
+                            <td>string</td>
+                            <td>Last name of the user who added the book.</td>
+                    </tr>
+                    <tr>
+                            <td>users.fname</td>
+                            <td>string</td>
+                            <td>First name of current user.</td>
+                    </tr>
+                    <tr>
+                            <td>users.lname</td>
+                            <td>string</td>
+                            <td>Last name of current user.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+    </body>
+    <script src="documentation.js"></script>
+</html>

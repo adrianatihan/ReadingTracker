@@ -44,6 +44,10 @@ app.post('/people/add', function(req, resp){
     resp.json(people);
   });
 
+app.get('/people/search', function(req, resp){
+    resp.json(people);
+});
+
 app.get('/books/list', function(req, resp){
   resp.json(library);
 });
@@ -63,17 +67,23 @@ app.post('/books/add', function(req, resp){
         userfname: library.users[0].fname, 
         userlname: library.users[0].lname};
   library.books.push(obj);
+  for(let person of people.people){
+      if(person.fname==obj.userfname){
+          person.cnt+=1;
+      }
+  }
   fs.writeFile('./books.json',JSON.stringify(library, null, 2), err =>{
       if(err){
           console.log(err);
       }
   });
+  fs.writeFile('./people.json',JSON.stringify(people, null, 2), err =>{
+    if(err){
+        console.log(err);
+    }
+});
   resp.json(library);
 });
 
-app.get('/mainpage', function(req, resp){
-    library.users.pop();
-    resp.json(library);
-});
 
 module.exports = app;

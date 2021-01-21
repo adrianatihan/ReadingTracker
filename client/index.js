@@ -43,10 +43,11 @@ login.addEventListener('click', async function(event){
   let body = await response.json();
   renderPeople(body);
   if(fname!=''){
-  document.getElementById('homePage').innerHTML='<button type="button" class="btn btn-primary" align="center" onclick=MainPage()>Back to main page</button>';
   document.getElementById('showbooks').innerHTML='<button type="button" class="btn btn-primary" align="center" onclick=showBooks()>Show books</button>';
   document.getElementById('yourbooks').innerHTML="";
   document.getElementById('submit_thing').disabled= false;
+  document.getElementById('fname').value='';
+  document.getElementById('lname').value='';
   }
 });
 
@@ -67,16 +68,17 @@ function renderBooks(library){
     }
 };
 
-document.getElementById('submit_search').addEventListener('click', async function(event){
+document.getElementById('submit_searchbooks').addEventListener('click', async function(event){
   event.preventDefault();
   let searchtitle = document.getElementById('searchtitle').value;
   let response = await fetch('http://127.0.0.1:8090/books/search');
   let body = await response.json();
   searchBooks(body,searchtitle);
+  document.getElementById('searchtitle').value='';
 });
 
 function searchBooks(library, searchtitle){
-  let container = document.getElementById('yourbooks');
+  let container = document.getElementById('searchresult');
   container.innerHTML = "<h4>Search results:</h4>";
   let ok=0;
   for(let book of library.books){
@@ -86,13 +88,6 @@ function searchBooks(library, searchtitle){
         item.innerHTML= 'Reviewed by:'+book.userfname+ ' '+ book.userlname+ '<br>'+
                         'Review:'+book.review+'<br><br>';
         container.appendChild(item);}
-    if(book.userfname+ ' '+ book.userlname==searchtitle){
-        ok=1;
-        let item = document.createElement('div');
-        item.innerHTML= 'Title:'+ book.title+'<br>'+
-                        'Author:'+book.author+'<br>'+
-                        'Review:'+book.review+'<br><br>';
-        container.appendChild(item);}
     }
     if(ok==0){
           let item = document.createElement('div');
@@ -100,6 +95,33 @@ function searchBooks(library, searchtitle){
           container.appendChild(item);
     }
   
+};
+
+document.getElementById('submit_searchpeople').addEventListener('click', async function(event){
+  event.preventDefault();
+  let searchname = document.getElementById('searchname').value;
+  let response = await fetch('http://127.0.0.1:8090/people/search');
+  let body = await response.json();
+  searchPeople(body,searchname);
+  document.getElementById('searchname').value='';
+});
+
+function searchPeople(people, searchname){
+  let container = document.getElementById('searchresult');
+  container.innerHTML = "<h4>Search results:</h4>";
+  let ok=0;
+  for(let person of people.people){
+    if(person.fname+ ' '+ person.lname==searchname){
+      ok=1;
+      let item = document.createElement('div');
+      item.innerHTML= 'No. of books:'+ person.cnt+'<br>';
+      container.appendChild(item);}
+  }
+  if(ok==0){
+      let item = document.createElement('div');
+      item.innerHTML="No item has matched your search";
+      container.appendChild(item);
+  }
 };
 
 let submit = document.getElementById('submit_thing');
@@ -124,17 +146,20 @@ submit.addEventListener('click', async function(event){
 
   let body = await response.json();
   renderBooks(body);
+  document.getElementById('newbook').value='';
+  document.getElementById('newauthor').value='';
+  document.getElementById('newreview').value='';
 });
 
-async function MainPage(){
+function MainPage(){
 
-  let response = await fetch('http://127.0.0.1:8090/mainpage');
-  let body = await response.json();
+
 
   document.getElementById('yourbooks').innerHTML='<p style="font-size: 120%">Welcome to the Personalised Reading Tracker. Create your account'+
   " and track your reading progress. Review books and see others' opinions of the books you have read or might want to read. Look"+
-  " up your friends to see what they have been reading.</p>'";
+  " up your friends to see what they have been reading.</p>";
   document.getElementById('showbooks').innerHTML="";
   document.getElementById('homePage').innerHTML="";
   document.getElementById('submit_thing').disabled= true;
+  document.getElementById('searchresult').innerHTML="";
 }
