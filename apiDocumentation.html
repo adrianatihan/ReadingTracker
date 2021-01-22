@@ -12,6 +12,7 @@
         <style>
             .col-sm-3{
                 border-right: 3px solid rgba(0, 0, 0, 0.562);
+                background-color:grey;
             }
             .btn{
                 color: black;
@@ -22,6 +23,8 @@
                 border-bottom: 3px solid rgba(0, 0, 0, 0.562);
                 padding: 50px;
                 text-align: center;
+                background-color:rgba(46, 46, 46, 0.911);
+                color: whitesmoke;
             }
         </style>
 
@@ -57,9 +60,8 @@
                 <h4>Endpoint URL</h4>
                 <code id="url">http://127.0.0.1:8090/books/list</code>
                 <h4>Example request:</h4>
-                <div class="panel panel-default">
-                        <div class="panel-body" id="request">curl -X GET http://127.0.0.1:8090/books/list</div>
-                </div>
+                <code id="request">curl -X GET http://127.0.0.1:8090/books/list</code>
+                
                 <h4>Example response:</h4>
                 <div class="panel panel-default">
                         <div class="panel-body" id="response">
