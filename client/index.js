@@ -12,9 +12,9 @@ function renderPeople (people) {
     let cnt = 0;
     for (const person of people.people) {
       if (cnt % 6 === 0) {
- const item = document.createElement('tr');
-       container.appendChild(item);
-}
+        const item = document.createElement('tr');
+        container.appendChild(item);
+      }
       const item = document.createElement('td');
       item.innerHTML = person.fname + ' ' + person.lname + '&nbsp&nbsp&nbsp&nbsp';
       container.appendChild(item);
@@ -39,11 +39,14 @@ login.addEventListener('click', async function (event) {
     body: JSON.stringify(parameters)
   });
 
-  const body = await response.json();
-  renderPeople(body);
+  const people = await response.json();
+  renderPeople(people);
   if (fname !== '') {
-  document.getElementById('showbooks').innerHTML = '<button type="button" class="btn btn-primary" align="center" onclick=showBooks()>Show books</button>';
+  for (const person of people.people) {
+ if (person.fname == fname && person.cnt > 0) { document.getElementById('showbooks').innerHTML = '<button type="button" class="btn btn-primary" align="center" onclick=showBooks()>Show books</button>'; }
+}
   document.getElementById('yourbooks').innerHTML = '';
+  document.getElementById('LogInSubmit').disabled = true;
   document.getElementById('submit_thing').disabled = false;
   document.getElementById('fname').value = '';
   document.getElementById('lname').value = '';
@@ -61,7 +64,7 @@ function renderBooks (library) {
     const container = document.getElementById('yourbooks');
     container.innerHTML = '<h4>Your books:</h4>';
     for (const book of library.books) {
-      if (library.users[library.users.length - 1].fname === book.userfname) {
+      if (library.userfname === book.userfname) {
           const item = document.createElement('div');
           item.innerHTML = book.title + '<br>';
           container.appendChild(item);
@@ -158,6 +161,7 @@ function MainPage () {
   document.getElementById('showbooks').innerHTML = '';
   document.getElementById('homePage').innerHTML = '';
   document.getElementById('submit_thing').disabled = true;
+  document.getElementById('LogInSubmit').disabled = false;
   document.getElementById('searchresult').innerHTML = '';
   document.getElementById('title').innerHTML = 'Personalised Reading Tracker';
 }

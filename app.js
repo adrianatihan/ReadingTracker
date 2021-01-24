@@ -20,10 +20,13 @@ app.post('/people/add', function (req, resp) {
 
     const obj = {
         fname: fname,
-        lname: lname
+        lname: lname,
+        cnt: 0
      };
-    library.users.pop();
-    library.users.push(obj);
+    // library.users.pop();
+    // library.users.push(obj);
+    library.userfname = fname;
+    library.userlname = lname;
 
     let flag = 0;
     for (const person of people.people) {
@@ -63,8 +66,8 @@ app.post('/books/add', function (req, resp) {
     title: newbook,
     author: newauthor,
     review: newreview,
-    userfname: library.users[0].fname,
-    userlname: library.users[0].lname
+    userfname: library.userfname,
+    userlname: library.userlname
  };
   library.books.push(obj);
   for (const person of people.people) {

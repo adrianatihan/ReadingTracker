@@ -3,12 +3,17 @@
     {
       "fname": "Adriana",
       "lname": "Tihan",
-      "cnt": 1
+      "cnt": 8
     },
     {
       "fname": "Tia",
       "lname": "Tihan",
       "cnt": 1
+    },
+    {
+      "fname": "John",
+      "lname": "Smith",
+      "cnt": 0
     }
   ]
 }

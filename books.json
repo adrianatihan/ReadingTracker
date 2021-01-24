@@ -2,23 +2,33 @@
   "books": [
     {
       "title": "The Great Gatsby",
-      "author": "F. Fitzgerald",
-      "review": "Nice",
+      "author": "F. Scott Fitzgerald",
+      "review": "Great book. I liked it a lot.",
       "userfname": "Adriana",
       "userlname": "Tihan"
     },
     {
       "title": "The Test",
       "author": "Sylvain Neuvell",
-      "review": "Black Mirror shit",
+      "review": "Reminds me of the show Black Mirror",
       "userfname": "Tia",
+      "userlname": "Tihan"
+    },
+    {
+      "title": "Harry Potter 2",
+      "author": "JK Rowling",
+      "review": "This has been my favourite book as a kid.",
+      "userfname": "Adriana",
+      "userlname": "Tihan"
+    },
+    {
+      "title": "HP 2",
+      "author": "JKR",
+      "review": "good",
+      "userfname": "Adriana",
       "userlname": "Tihan"
     }
   ],
-  "users": [
-    {
-      "fname": "Tia",
-      "lname": "Tihan"
-    }
-  ]
+  "userfname": "Adriana",
+  "userlname": "Tihan"
 }
