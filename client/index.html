@@ -21,18 +21,7 @@
 
 <body>
     <nav class="navbar navbar-default" id="navbar">
-        
-          <!--<form class="navbar-form navbar-left" action="/books/search" method="get" id="navbarform">
-                <label for="searchtitle">Search books:</label>
-                <input type="text" id="searchtitle" name="searchtitle">
-                <input type='submit' id='submit_searchbooks'><br>
-          <!--</form>
-          <form class="navbar-form navbar-left" action="/people/search" method="get" id="navbarform">
-            <label for="searchname">Search people:</label>
-            <input type="text" id="searchname" name="searchname">
-            <input type='submit' id='submit_searchpeople'><br>
-          </form>-->
-          <button type="button" class="btn btn-default" align="left" onclick=MainPage() id="button">Home</button>
+          <button type="button" class="btn btn-default" align="left" id="buttonMainPage">Home</button>
           <div class="navbar-nav">
           <form class="navbar-form navbar-right" action="http://127.0.0.1:8090/person/add">
             <label align="right">Log in/ Sign up:</label>
@@ -41,8 +30,6 @@
             <input type="submit" value="Submit"  id="LogInSubmit">
           </form>
           </div>
-          
-          
       </nav>
 
     <div id="body">
@@ -68,7 +55,6 @@
         <div align="centre" class="container-fluid" id="yourbooks"><p style="font-size: 120%">Welcome to the Personalised Reading Tracker. Create your account and
           track your reading progress. Review books and see others' opinions of the books you have read or might want to read. Look up
           your friends to see what they have been reading.</p></div>
-
     </div>
 
     <div class="container-fluid" align="center" id="searchform">
@@ -85,8 +71,6 @@
       </form>
       <div id="searchresult"></div>
     </div>
-
-    
 
     <div class="container-fluid" align="center" id="addbooks">
     <h4>Add books:</h4>

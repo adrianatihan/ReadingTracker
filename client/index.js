@@ -9,6 +9,7 @@ function renderPeople (people) {
   const container = document.getElementById('people');
     container.innerHTML = '';
     const item = document.createElement('table');
+    container.appendChild(item);
     let cnt = 0;
     for (const person of people.people) {
       if (cnt % 6 === 0) {
@@ -21,6 +22,12 @@ function renderPeople (people) {
       cnt++;
     }
 }
+
+async function showBooks () {
+  const response = await fetch('http://127.0.0.1:8090/books/list');
+  const body = await response.json();
+  renderBooks(body);
+};
 
 const login = document.getElementById('LogInSubmit');
 login.addEventListener('click', async function (event) {
@@ -43,7 +50,9 @@ login.addEventListener('click', async function (event) {
   renderPeople(people);
   if (fname !== '') {
   for (const person of people.people) {
- if (person.fname == fname && person.cnt > 0) { document.getElementById('showbooks').innerHTML = '<button type="button" class="btn btn-primary" align="center" onclick=showBooks()>Show books</button>'; }
+ if (person.fname === fname && person.cnt > 0) {
+   document.getElementById('showbooks').innerHTML = '<button type="button" class="btn btn-primary" align="center" id="buttonShowBooks" onclick=showBooks()>Show books</button>';
+  }
 }
   document.getElementById('yourbooks').innerHTML = '';
   document.getElementById('LogInSubmit').disabled = true;
@@ -53,12 +62,6 @@ login.addEventListener('click', async function (event) {
   document.getElementById('title').innerHTML = fname + "'s Reading Tracker";
   }
 });
-
-async function showBooks () {
-  const response = await fetch('http://127.0.0.1:8090/books/list');
-  const body = await response.json();
-  renderBooks(body);
-}
 
 function renderBooks (library) {
     const container = document.getElementById('yourbooks');
@@ -154,7 +157,7 @@ submit.addEventListener('click', async function (event) {
   document.getElementById('newreview').value = '';
 });
 
-function MainPage () {
+document.getElementById('buttonMainPage').addEventListener('click', function (event) {
   document.getElementById('yourbooks').innerHTML = '<p style="font-size: 120%">Welcome to the Personalised Reading Tracker. Create your account' +
   " and track your reading progress. Review books and see others' opinions of the books you have read or might want to read. Look" +
   ' up your friends to see what they have been reading.</p>';
@@ -164,4 +167,4 @@ function MainPage () {
   document.getElementById('LogInSubmit').disabled = false;
   document.getElementById('searchresult').innerHTML = '';
   document.getElementById('title').innerHTML = 'Personalised Reading Tracker';
-}
+});

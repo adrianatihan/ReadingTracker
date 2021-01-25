@@ -2,6 +2,16 @@
   padding: 60px 50px;
   letter-spacing: 4px;
 }
+
+.navbar-nav { 
+  margin-left: auto; 
+} 
+
+#buttonMainPage{
+  margin-right: 0;
+  color: whitesmoke;
+}
+
 #header {
   background-color: wheat;
 }
@@ -14,7 +24,12 @@
   background-color: wheat;
 }
 
-.navbar{
+#searchform{
+  background-color: rgb(11, 11, 58);
+  color: whitesmoke;
+}
+
+#navbar{
   margin-bottom: 0;
   background-color: #2d2d30;
   border: 0;
